@@ -25,6 +25,37 @@ class Youtube {
       throw e;
     }
   }
+
+  async getVideoByChannelId(channelId: string) {
+    try {
+      const response = await this.youtube.get("search", {
+        params: {
+          part: "snippet",
+          channelId: channelId,
+          maxResults: 1,
+          type: "video",
+        },
+      });
+      return response.data.items[0];
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  }
+
+  // async getVideoOfAllSubscription(subscriptionList: any[]) {
+  //   return subscriptionList.map(async (subscription) => {
+  //     try {
+  //       const response = await this.getVideoByChannelId(
+  //         subscription.snippet.resourceId.channelId,
+  //       );
+  //       return response;
+  //     } catch (e) {
+  //       console.log(e);
+  //       return {};
+  //     }
+  //   });
+  // }
 }
 
 const httpClient = axios.create({
