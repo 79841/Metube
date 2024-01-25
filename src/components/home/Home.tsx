@@ -3,6 +3,7 @@ import { useSubscribeList } from "../../hooks/useSubscribeList";
 import { GoogleLogoutbutton } from "../auth/GoogleLogoutbutton";
 import { SubscriptionList } from "../youtube/subscription";
 import { useSubscribedListStore } from "../../lib/zustand/subscribedList";
+import { VideoList } from "../youtube/video";
 
 export const Home = () => {
   const { data, isLoading } = useSubscribeList();
@@ -13,9 +14,14 @@ export const Home = () => {
   }, [data, setSubscribedList]);
 
   return (
-    <div className="p-8">
-      <GoogleLogoutbutton />
-      {!isLoading && <SubscriptionList />}
+    <div className="flex gap-8 p-8">
+      {/* <GoogleLogoutbutton /> */}
+      {!isLoading && (
+        <>
+          <SubscriptionList />
+          <VideoList />
+        </>
+      )}
     </div>
   );
 };
