@@ -5,3 +5,7 @@
 body {
   @apply bg-zinc-900;
 }
+
+.youtube-frame iframe {
+  @apply aspect-video h-full w-full;
+}
