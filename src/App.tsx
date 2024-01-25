@@ -1,12 +1,7 @@
-import { TanstackProvider } from "./components/common/tanstack";
 import { Router } from "./components/router";
 
 function App() {
-  return (
-    <TanstackProvider>
-      <Router />
-    </TanstackProvider>
-  );
+  return <Router />;
 }
 
 export default App;
