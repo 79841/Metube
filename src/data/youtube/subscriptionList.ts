@@ -38,6 +38,7 @@ export const subscriptionList = {
         activityType: "all",
       },
     },
+    // /*
     {
       kind: "youtube#subscription",
       etag: "MIMZWAUiFtYQ9m58TOCeYqG2fHs",
@@ -1597,5 +1598,6 @@ export const subscriptionList = {
         activityType: "all",
       },
     },
+    // */
   ],
 };
