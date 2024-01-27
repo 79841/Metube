@@ -2,7 +2,7 @@
 // import { youtubeService } from "../services/youtube";
 // import { useSubscribedListStore } from "../lib/zustand/subscribedList";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSubscribedListStore } from "../lib/zustand/subscribedList";
 import { youtubeService } from "../services/youtube";
 
@@ -17,18 +17,20 @@ import { youtubeService } from "../services/youtube";
 
 export const useVideoList = () => {
   const { subscribedList } = useSubscribedListStore();
+  const [videoList, setVideoList] = useState({});
+
   useEffect(() => {
     const videoPromises = subscribedList.map(
       (subscribed) =>
         new Promise((resolve, reject) => {
-          try {
-            const video = youtubeService.getVideoByChannelId(
-              subscribed.snippet.resourceId.channelId,
-            );
-            resolve(video);
-          } catch (e) {
-            reject(e);
-          }
+          youtubeService
+            .getVideoByChannelId(subscribed.snippet.resourceId.channelId)
+            .then(resolve)
+            .catch(reject)
+            .then((video) => {
+              console.log("video", video);
+            });
+          // setVideoList((prev) => ({ ...prev, [video.id.videoId]: video }));
         }),
     );
     Promise.all(videoPromises).then((res) => console.log(res));
