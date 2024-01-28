@@ -15,11 +15,11 @@ export const DndSpace = ({ children }: TDndSpaceProps) => {
 
   const handleMouseUp = () => {
     stopDragging();
+    mousePointRef.current = null;
   };
 
   const handleMouseMove: MouseEventHandler = throttle((e) => {
     console.log(e.clientX, e.clientY);
-
     if (!isDragging) return;
     if (mousePointRef.current === null) {
       movePosition({
@@ -36,7 +36,11 @@ export const DndSpace = ({ children }: TDndSpaceProps) => {
   }, 20);
 
   return (
-    <div onMouseUp={handleMouseUp} onMouseMove={handleMouseMove}>
+    <div
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
+      className={`fixed left-0 top-0 h-0 w-0 ${isDragging && "h-screen w-screen"}`}
+    >
       {children}
     </div>
   );

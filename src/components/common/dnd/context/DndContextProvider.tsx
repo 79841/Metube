@@ -44,7 +44,7 @@ const positionReducer = (
         },
       };
     case "RESET":
-      return { position: { x: 0, y: 0 } };
+      return dndPositionInitState;
     default:
       return state;
   }
