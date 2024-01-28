@@ -17,24 +17,6 @@ export const Subscription = ({ subscription }: TSubscriptionProps) => {
   };
 
   return (
-    // <div
-    //   className="relative flex h-14 w-14 shrink-0 flex-col items-center gap-4 overflow-hidden rounded-lg text-zinc-100"
-    //   key={subscription.title}
-    // >
-    //   <div className="h-full w-full overflow-hidden">
-    //     <img
-    //       src={subscription.thumbnails.high.url}
-    //       alt={subscription.title}
-    //       loading={"lazy"}
-    //       sizes="10rem"
-    //     />
-    //   </div>
-    //   <div className="absolute bottom-0 flex w-full items-center bg-zinc-800 bg-opacity-30 px-2 backdrop-blur-md">
-    //     <div className="w-full overflow-hidden truncate text-center text-[0.6rem] font-semibold">
-    //       {subscription.title}
-    //     </div>
-    //   </div>
-    // </div>
     <div
       ref={ref}
       className="relative justify-start bg-cover bg-center"
