@@ -41,11 +41,7 @@ export const Home = () => {
           </>
         )}
       </div>
-      <DndContextProvider>
-        <DndSpace>
-          <VideoModal />
-        </DndSpace>
-      </DndContextProvider>
+      <VideoModal />
     </div>
   );
 };
