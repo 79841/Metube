@@ -1,4 +1,3 @@
-import { throttle } from "lodash";
 import { MouseEventHandler, PropsWithChildren, useRef } from "react";
 import { useDndPositionDispatchContext } from "./context/DndPositionContext";
 import {
@@ -18,22 +17,24 @@ export const DndSpace = ({ children }: TDndSpaceProps) => {
     mousePointRef.current = null;
   };
 
-  const handleMouseMove: MouseEventHandler = throttle((e) => {
-    console.log(e.clientX, e.clientY);
+  const handleMouseMove: MouseEventHandler = (e) => {
     if (!isDragging) return;
-    if (mousePointRef.current === null) {
-      movePosition({
-        x: 0,
-        y: 0,
-      });
-    } else {
-      movePosition({
-        x: e.clientX - mousePointRef.current.x,
-        y: e.clientY - mousePointRef.current.y,
-      });
-    }
-    mousePointRef.current = { x: e.clientX, y: e.clientY };
-  }, 20);
+    const updatePosition = () => {
+      if (mousePointRef.current === null) {
+        movePosition({
+          x: 0,
+          y: 0,
+        });
+      } else {
+        movePosition({
+          x: e.clientX - mousePointRef.current.x,
+          y: e.clientY - mousePointRef.current.y,
+        });
+      }
+      mousePointRef.current = { x: e.clientX, y: e.clientY };
+    };
+    requestAnimationFrame(updatePosition);
+  };
 
   return (
     <div
