@@ -3,6 +3,7 @@ import {
   useCallback,
   MouseEventHandler,
   PropsWithChildren,
+  useRef,
 } from "react";
 
 type TWidthResizableProps = {
@@ -11,6 +12,7 @@ type TWidthResizableProps = {
 export const WidthResizable = ({ width, children }: TWidthResizableProps) => {
   const [size, setSize] = useState({ width });
   const [isResizing, setIsResizing] = useState(false);
+  const mousePointRef = useRef();
 
   const startResizing = useCallback(() => {
     console.log("resizing start");
@@ -28,7 +30,7 @@ export const WidthResizable = ({ width, children }: TWidthResizableProps) => {
     (e) => {
       if (isResizing) {
         setSize((prevSize) => ({
-          width: Math.max(100, e.clientX - prevSize.width + prevSize.width),
+          width: -e.clientX + prevSize.width,
         }));
       }
     },
@@ -45,7 +47,7 @@ export const WidthResizable = ({ width, children }: TWidthResizableProps) => {
         userSelect: "none",
       }}
       onMouseMove={resize}
-      onMouseLeave={stopResizing}
+      // onMouseLeave={stopResizing}
       onMouseUp={stopResizing}
     >
       <div
