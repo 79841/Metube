@@ -40,9 +40,7 @@ export const DndSpace = ({ children }: TDndSpaceProps) => {
     <div
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      className={`fixed left-0 top-0 h-0 w-0 ${isDragging && "h-screen w-screen"}`}
-    >
-      {children}
-    </div>
+      className={`fixed left-0 top-0 z-40 h-fit w-fit bg-blue-300 opacity-30 ${isDragging && "h-screen w-screen"}`}
+    ></div>
   );
 };

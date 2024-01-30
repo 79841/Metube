@@ -10,18 +10,18 @@ import { QueryErrorResetBoundary } from "@tanstack/react-query";
 export const Router = () => {
   return (
     <BrowserRouter>
-      <ErrorBoundary
+      {/* <ErrorBoundary
         fallbackRender={(fallbackProps) => <ErrorFallback {...fallbackProps} />}
-      >
-        <TanstackProvider>
-          {/* <GoogleLoginProvider> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-          {/* </GoogleLoginProvider> */}
-        </TanstackProvider>
-      </ErrorBoundary>
+      > */}
+      <TanstackProvider>
+        {/* <GoogleLoginProvider> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        {/* </GoogleLoginProvider> */}
+      </TanstackProvider>
+      {/* </ErrorBoundary> */}
     </BrowserRouter>
   );
 };

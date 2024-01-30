@@ -1,3 +1,3 @@
-export * from "./Video";
+export * from "./default-video/Video";
 export * from "./VideoList";
-export * from "./VideoModal";
+export * from "./video-modal/VideoModal";

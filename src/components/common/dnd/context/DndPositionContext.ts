@@ -9,7 +9,7 @@ type TDndPositionDispatchContext = {
   resetPosition: () => void;
 };
 
-export const dndPositionInitState = { position: { x: 20, y: 20 } };
+export const dndPositionInitState = { position: { x: 0, y: 0 } };
 
 export const DndPositionContext =
   createContext<TDndPositionContext>(dndPositionInitState);

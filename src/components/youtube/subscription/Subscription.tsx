@@ -1,20 +1,14 @@
-import { useRef } from "react";
+import { SubscriptionIcon } from "./SubscriptionIcon";
+import { SubscriptionTitle } from "./SubscriptionTitle";
+import { useBackgroundImage } from "./hooks/useBackgroundImage";
 
 type TSubscriptionProps = {
   subscription: Record<string, any>;
 };
 export const Subscription = ({ subscription }: TSubscriptionProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouseOver = () => {
-    if (!ref.current) return;
-    ref.current.style.backgroundImage = `url(${subscription.thumbnails.high.url})`;
-  };
-
-  const handleMouseOut = () => {
-    if (!ref.current) return;
-    ref.current.style.backgroundImage = "none";
-  };
+  const [ref, handleMouseOver, handleMouseOut] = useBackgroundImage(
+    subscription.thumbnails.high.url,
+  );
 
   return (
     <div
@@ -23,19 +17,10 @@ export const Subscription = ({ subscription }: TSubscriptionProps) => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      <div className="flex h-fit w-fit gap-4 bg-zinc-900 bg-opacity-50 px-2 py-2">
-        <div className="h-12 w-12 min-w-12 overflow-hidden rounded-lg">
-          <img
-            src={subscription.thumbnails.high.url}
-            alt={subscription.title}
-            loading={"lazy"}
-            sizes="3rem"
-          />
-        </div>
+      <div className="flex h-fit w-fit gap-4 bg-zinc-900 bg-opacity-30 px-2 py-2">
+        <SubscriptionIcon subscription={subscription} />
         <div className="flex items-center">
-          <div className="w-60 truncate text-sm text-zinc-100">
-            {subscription.title}
-          </div>
+          <SubscriptionTitle title={subscription.title} />
         </div>
       </div>
     </div>

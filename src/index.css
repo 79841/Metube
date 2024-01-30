@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-zinc-950;
+  @apply min-h-screen w-full bg-zinc-950;
 }
 
 .youtube-frame iframe {
