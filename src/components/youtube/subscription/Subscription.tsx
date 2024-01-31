@@ -1,9 +1,9 @@
+import { useBackgroundImage } from "./hooks/useBackgroundImage";
 import { SubscriptionIcon } from "./SubscriptionIcon";
 import { SubscriptionTitle } from "./SubscriptionTitle";
-import { useBackgroundImage } from "./hooks/useBackgroundImage";
 
 type TSubscriptionProps = {
-  subscription: Record<string, any>;
+  subscription: Record<string, any[]>;
 };
 export const Subscription = ({ subscription }: TSubscriptionProps) => {
   const [ref, handleMouseOver, handleMouseOut] = useBackgroundImage(

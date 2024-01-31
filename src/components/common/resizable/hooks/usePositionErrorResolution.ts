@@ -1,4 +1,5 @@
 import { useEffect, useReducer } from "react";
+
 import { useWidthContext } from "../context/WidthContext";
 
 type TPositionAction =

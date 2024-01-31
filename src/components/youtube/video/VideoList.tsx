@@ -1,5 +1,5 @@
-import { Video } from "./default-video/Video";
 import { videosOfAllSubscriptions } from "../../../data/youtube/videosOfAllSubscriptions";
+import { Video } from "./default-video/Video";
 
 export const VideoList = () => {
   return (

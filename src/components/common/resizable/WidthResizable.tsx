@@ -1,15 +1,7 @@
 import {
-  useState,
-  useRef,
-  MouseEventHandler,
   ComponentProps,
-  useReducer,
-  useEffect,
 } from "react";
-import {
-  useWidthContext,
-  useWidthDispatchContext,
-} from "./context/WidthContext";
+
 import { useWidthResizing } from "./hooks/useWidthResizing";
 
 type TWidthResizableProps = ComponentProps<"div">;

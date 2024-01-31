@@ -1,6 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
-import { youtubeService } from "../services/youtube";
-import { useGoogleAccessTokenStore } from "../lib/zustand";
 import { subscriptionList } from "../data/youtube/subscriptionList";
 
 export const useSubscribeList = () => {

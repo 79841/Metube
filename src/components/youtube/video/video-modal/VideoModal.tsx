@@ -1,10 +1,11 @@
 import YouTube from "react-youtube";
+
 import { useSelectedVideoStore } from "../../../../lib/zustand";
 import { Draggable } from "../../../common/dnd";
-import { VideoModalController } from "./video-modal-controller/VideoModalController";
 import { DndContextProvider } from "../../../common/dnd/context";
 import { WidthResizable } from "../../../common/resizable";
 import { WidthContextProvider } from "../../../common/resizable/context/WidthContextProvider";
+import { VideoModalController } from "./video-modal-controller/VideoModalController";
 
 export const VideoModal = () => {
   const { selectedVideo } = useSelectedVideoStore();

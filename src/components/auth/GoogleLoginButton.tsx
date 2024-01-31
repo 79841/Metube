@@ -2,8 +2,9 @@ import GoogleLogin, {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
 } from "react-google-login";
-import { useGoogleAccessTokenStore } from "../../lib/zustand";
 import { useNavigate } from "react-router-dom";
+
+import { useGoogleAccessTokenStore } from "../../lib/zustand";
 
 export const GoogleLoginButton = () => {
   const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID as string;
@@ -18,7 +19,7 @@ export const GoogleLoginButton = () => {
     }
   };
 
-  const onFailure = (err: any) => {
+  const onFailure = (err: Error) => {
     console.log(err);
   };
 

@@ -1,9 +1,10 @@
 import { PropsWithChildren, useReducer } from "react";
+
 import {
-  TSizeContext,
   SizeContext,
   SizeDispatchContext,
   sizeInitState,
+  TSizeContext,
 } from "./SizeContext";
 
 type TSizeAction =

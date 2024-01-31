@@ -1,9 +1,10 @@
 import { PropsWithChildren, useReducer } from "react";
+
 import {
-  TScaleContext,
   ScaleContext,
   ScaleDispatchContext,
   scaleInitState,
+  TScaleContext,
 } from "./ScaleContext";
 
 type TScaleAction =

@@ -1,9 +1,9 @@
 import { ComponentProps, MouseEventHandler, useRef, useState } from "react";
+
 import { useSizeContext, useSizeDispatchContext } from "./context/SizeContext";
 
 type TWidthResizableProps = ComponentProps<"div">;
 export const Resizable = ({ children, ...props }: TWidthResizableProps) => {
-  // const [width, setWidth] = useState<number | null>();
   const { setSize } = useSizeDispatchContext();
   const { width, height } = useSizeContext();
   const [isResizing, setIsResizing] = useState(false);

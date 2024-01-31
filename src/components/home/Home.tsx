@@ -1,11 +1,10 @@
 import { useEffect } from "react";
+
 import { useSubscribeList } from "../../hooks/useSubscribeList";
-import { SubscriptionList } from "../youtube/subscription";
 import { useSubscribedListStore } from "../../lib/zustand/subscribedList";
+import { SubscriptionList } from "../youtube/subscription";
 import { VideoList } from "../youtube/video";
 import { VideoModal } from "../youtube/video";
-import { DndContextProvider } from "../common/dnd/context";
-import { DndSpace } from "../common/dnd/DndSpace";
 import { Header } from "./header/Header";
 
 export const Home = () => {
