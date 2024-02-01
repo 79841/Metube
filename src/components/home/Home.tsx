@@ -3,12 +3,11 @@ import { useEffect } from "react";
 import { useSubscribeList } from "../../hooks/useSubscribeList";
 import { useSubscribedListStore } from "../../lib/zustand/subscribedList";
 import { SubscriptionList } from "../youtube/subscription";
-import { VideoList } from "../youtube/video";
-import { VideoModal } from "../youtube/video";
+import { VideoList, VideoModal } from "../youtube/video";
 import { Header } from "./header/Header";
 
 export const Home = () => {
-  const { data, isLoading } = useSubscribeList();
+  const [data, isLoading] = useSubscribeList();
   const { setSubscribedList } = useSubscribedListStore();
 
   useEffect(() => {

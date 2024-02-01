@@ -21,7 +21,14 @@ export const VideoInfo = ({ videoData }: TVideoInfoProps) => {
           />
         </div>
       )}
-      <div className="text-sm">{videoData.snippet.title}</div>
+      <div className="flex flex-col gap-2">
+        <div className="text-sm">{videoData.snippet.title}</div>
+        <div className="flex flex-wrap gap-1 text-sm text-zinc-400">
+          {videoData.snippet.tags.map((tag) => (
+            <div key={tag}>{`#${tag}`}</div>
+          ))}
+        </div>
+      </div>
     </>
   );
 };

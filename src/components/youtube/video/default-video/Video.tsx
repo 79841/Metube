@@ -15,7 +15,7 @@ export const Video = ({ videoData }: TVideoProps) => {
 
   return (
     <div
-      className="flex cursor-pointer flex-col gap-2 text-zinc-100"
+      className="flex cursor-pointer flex-col gap-4 rounded-xl bg-zinc-900 p-2 text-zinc-100"
       onClick={startVideoModal}
     >
       <div
@@ -25,7 +25,7 @@ export const Video = ({ videoData }: TVideoProps) => {
       >
         <VideoThumbnail videoData={videoData} />
         <YouTube
-          videoId={videoData.id}
+          videoId={videoData.id.videoId}
           onReady={onReady}
           opts={{
             playerVars: {
@@ -34,7 +34,7 @@ export const Video = ({ videoData }: TVideoProps) => {
           }}
         />
       </div>
-      <div className="flex items-start gap-2">
+      <div className="mb-4 flex h-16 items-start gap-4">
         <VideoInfo videoData={videoData} />
       </div>
     </div>

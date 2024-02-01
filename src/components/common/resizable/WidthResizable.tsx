@@ -1,6 +1,4 @@
-import {
-  ComponentProps,
-} from "react";
+import { ComponentProps } from "react";
 
 import { useWidthResizing } from "./hooks/useWidthResizing";
 
@@ -20,7 +18,7 @@ export const WidthResizable = ({
       {...props}
     >
       <div
-        className={`fixed z-40 h-0 w-0 ${isResizing && "h-screen w-screen"} bg-white bg-opacity-30`}
+        className={`fixed z-40 h-0 w-0 ${isResizing && "h-screen w-screen"}`}
         onMouseMove={resize}
         onMouseUp={stopResizing}
       ></div>
