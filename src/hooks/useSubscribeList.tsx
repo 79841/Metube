@@ -10,5 +10,5 @@ export const useSubscribeList = () => {
   const data = subscriptionList.items;
   const isLoading = false;
 
-  return { data, isLoading };
+  return [data, isLoading] as const;
 };

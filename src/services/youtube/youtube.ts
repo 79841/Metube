@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { TSubscription } from "../../types/Subscription";
 
 class Youtube {
   private youtube: AxiosInstance;
@@ -10,7 +11,7 @@ class Youtube {
     try {
       const response = await this.youtube.get("subscriptions", {
         params: {
-          part: "snippet",
+          part: "snippet,contentDetails",
           mine: "true",
           maxResults: 1000,
         },
@@ -43,19 +44,20 @@ class Youtube {
     }
   }
 
-  // async getVideoOfAllSubscription(subscriptionList: any[]) {
-  //   return subscriptionList.map(async (subscription) => {
-  //     try {
-  //       const response = await this.getVideoByChannelId(
-  //         subscription.snippet.resourceId.channelId,
-  //       );
-  //       return response;
-  //     } catch (e) {
-  //       console.log(e);
-  //       return {};
-  //     }
-  //   });
-  // }
+  async getVideoOfAllSubscription(subscriptionList: TSubscription[]) {
+    const videoListPromises = subscriptionList.map(async (subscription) => {
+      try {
+        const response = await this.getVideoByChannelId(
+          subscription.snippet.resourceId.channelId,
+        );
+        return response;
+      } catch (e) {
+        console.log(e);
+        return {};
+      }
+    });
+    return Promise.all(videoListPromises);
+  }
 }
 
 const httpClient = axios.create({
