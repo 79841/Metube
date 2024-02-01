@@ -1,17 +1,18 @@
 import { create } from "zustand";
+import { TSubscription } from "../../types/Subscription";
 
 type TState = {
-  subscribedList: any[];
+  subscribedList: TSubscription[];
 };
 
 type TActions = {
-  setSubscribedList: (subscribedList: any[]) => void;
+  setSubscribedList: (subscribedList: TState["subscribedList"]) => void;
   removeSubscribedList: () => void;
 };
 
 export const useSubscribedListStore = create<TState & TActions>((set) => ({
   subscribedList: [],
-  setSubscribedList: (subscribedList: any[]) =>
+  setSubscribedList: (subscribedList: TState["subscribedList"]) =>
     set((state) => ({
       subscribedList,
     })),

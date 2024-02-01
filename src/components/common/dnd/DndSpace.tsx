@@ -1,4 +1,4 @@
-import { MouseEventHandler, PropsWithChildren, useRef } from "react";
+import { MouseEventHandler, useRef } from "react";
 
 import {
   useDndIsDraggingContext,
@@ -6,8 +6,7 @@ import {
 } from "./context";
 import { useDndPositionDispatchContext } from "./context/DndPositionContext";
 
-type TDndSpaceProps = PropsWithChildren;
-export const DndSpace = ({ children }: TDndSpaceProps) => {
+export const DndSpace = () => {
   const { isDragging } = useDndIsDraggingContext();
   const { stopDragging } = useDndIsDraggingDispatchContext();
   const mousePointRef = useRef<{ x: number; y: number } | null>(null);

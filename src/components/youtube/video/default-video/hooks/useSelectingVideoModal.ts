@@ -1,6 +1,7 @@
 import { useSelectedVideoStore } from "../../../../../lib/zustand";
+import { TVideo } from "../../../../../types/Video";
 
-export const useSelectingVideoModal = (videoData: Record<string, any>) => {
+export const useSelectingVideoModal = (videoData: TVideo) => {
   const { selectVideo } = useSelectedVideoStore();
   const startVideoModal = () => {
     selectVideo(videoData);

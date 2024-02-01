@@ -1,9 +1,10 @@
+import { TSubscription } from "../../../types/Subscription";
 import { useBackgroundImage } from "./hooks/useBackgroundImage";
 import { SubscriptionIcon } from "./SubscriptionIcon";
 import { SubscriptionTitle } from "./SubscriptionTitle";
 
 type TSubscriptionProps = {
-  subscription: Record<string, any[]>;
+  subscription: TSubscription["snippet"];
 };
 export const Subscription = ({ subscription }: TSubscriptionProps) => {
   const [ref, handleMouseOver, handleMouseOut] = useBackgroundImage(

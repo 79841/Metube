@@ -1,9 +1,8 @@
-import React from "react";
-
+import { TVideo } from "../../../../types/Video";
 import { convertISO8601ToHMS } from "../../../../utils/convertTimeFormat";
 
 type TVideoThumbnail = {
-  videoData: Record<string, any>;
+  videoData: TVideo;
 };
 export const VideoThumbnail = ({ videoData }: TVideoThumbnail) => {
   return (

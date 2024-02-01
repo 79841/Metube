@@ -1,12 +1,13 @@
 import YouTube from "react-youtube";
 
+import { TVideo } from "../../../../types/Video";
 import { VideoInfo } from "../default-video/VideoInfo";
+import { VideoThumbnail } from "./VideoThumbnail";
 import { useMouseOverVideo } from "./hooks/useMouseOverVideo";
 import { useSelectingVideoModal } from "./hooks/useSelectingVideoModal";
-import { VideoThumbnail } from "./VideoThumbnail";
 
 type TVideoProps = {
-  videoData: Record<string, any>;
+  videoData: TVideo;
 };
 export const Video = ({ videoData }: TVideoProps) => {
   const startVideoModal = useSelectingVideoModal(videoData);

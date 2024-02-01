@@ -1,5 +1,7 @@
+import { TSubscription } from "../../../types/Subscription";
+
 type TsubscriptionIconProps = {
-  subscription: Record<string, any>;
+  subscription: TSubscription["snippet"];
 };
 export const SubscriptionIcon = ({ subscription }: TsubscriptionIconProps) => {
   return (

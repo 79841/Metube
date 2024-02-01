@@ -1,7 +1,8 @@
 import { create } from "zustand";
+import { TVideo } from "../../types/Video";
 
 type TState = {
-  selectedVideo: Record<string, any> | null;
+  selectedVideo: TVideo | null;
 };
 
 type TActions = {

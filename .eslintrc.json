@@ -1,22 +1,10 @@
 {
-  "plugins": ["unused-imports", "simple-import-sort", "@typescript-eslint"],
-
-  "parser": "@typescript-eslint/parser",
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "root": true,
   "rules": {
-    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
-      }
-    ]
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"]
   }
 }

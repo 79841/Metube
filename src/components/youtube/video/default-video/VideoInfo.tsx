@@ -1,7 +1,8 @@
 import { useSubscribedListStore } from "../../../../lib/zustand";
+import { TVideo } from "../../../../types/Video";
 
 type TVideoInfoProps = {
-  videoData: Record<string, any>;
+  videoData: TVideo;
 };
 export const VideoInfo = ({ videoData }: TVideoInfoProps) => {
   const { subscribedList } = useSubscribedListStore();
