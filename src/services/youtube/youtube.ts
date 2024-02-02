@@ -27,7 +27,7 @@ class Youtube {
     }
   }
 
-  async getVideoByChannelId(channelId: string) {
+  async getRecentVideoIdByChannelId(channelId: string) {
     try {
       const response = await this.youtube.get("search", {
         params: {
@@ -35,9 +35,26 @@ class Youtube {
           channelId: channelId,
           maxResults: 1,
           type: "video",
+          order: "date",
         },
       });
-      return response.data.items[0];
+      return response.data.items[0].id.videoId;
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
+  }
+
+  async getVideoDetailByVideoIdList(videoIdList: string[]) {
+    try {
+      const response = await this.youtube.get("/videos", {
+        params: {
+          part: "snippet,contentDetails",
+          id: videoIdList.join(","),
+          maxResults: videoIdList.length,
+        },
+      });
+      return response.data.items;
     } catch (e) {
       console.log(e);
       throw e;
@@ -45,18 +62,26 @@ class Youtube {
   }
 
   async getVideoOfAllSubscription(subscriptionList: TSubscription[]) {
-    const videoListPromises = subscriptionList.map(async (subscription) => {
+    const videoIdListPromises = subscriptionList.map(async (subscription) => {
       try {
-        const response = await this.getVideoByChannelId(
+        const response = await this.getRecentVideoIdByChannelId(
           subscription.snippet.resourceId.channelId,
         );
         return response;
       } catch (e) {
         console.log(e);
-        return {};
+        return "";
       }
     });
-    return Promise.all(videoListPromises);
+    const videoIdList = await Promise.all(videoIdListPromises);
+    const validVideoIdList = videoIdList.filter((videoId) => videoId !== "");
+
+    try {
+      const response = await this.getVideoDetailByVideoIdList(validVideoIdList);
+      return response;
+    } catch (e) {
+      return [];
+    }
   }
 }
 

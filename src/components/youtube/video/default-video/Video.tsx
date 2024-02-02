@@ -1,5 +1,6 @@
-import YouTube from "react-youtube";
+import YouTube, { YouTubePlayer } from "react-youtube";
 
+import { useRef, useState } from "react";
 import { TVideo } from "../../../../types/Video";
 import { VideoInfo } from "../default-video/VideoInfo";
 import { VideoThumbnail } from "./VideoThumbnail";
@@ -10,8 +11,15 @@ type TVideoProps = {
   videoData: TVideo;
 };
 export const Video = ({ videoData }: TVideoProps) => {
+  const [isReady, setIsReady] = useState(false);
+  const playerRef = useRef<YouTubePlayer | null>(null);
+  const onReady = (event: { target: YouTubePlayer }) => {
+    playerRef.current = event.target;
+    setIsReady(true);
+  };
+
   const startVideoModal = useSelectingVideoModal(videoData);
-  const [playWithMouseOver, stopWithMouseOut, onReady] = useMouseOverVideo();
+  const [playWithMouseOver, stopWithMouseOut] = useMouseOverVideo(playerRef);
 
   return (
     <div
@@ -25,7 +33,7 @@ export const Video = ({ videoData }: TVideoProps) => {
       >
         <VideoThumbnail videoData={videoData} />
         <YouTube
-          videoId={videoData.id.videoId}
+          videoId={videoData.id}
           onReady={onReady}
           opts={{
             playerVars: {

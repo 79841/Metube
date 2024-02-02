@@ -20,7 +20,7 @@ export const VideoModal = () => {
             <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-zinc-900 bg-opacity-30 shadow-xl shadow-zinc-950 backdrop-blur-md">
               <div className="youtube-frame aspect-video w-full">
                 <YouTube
-                  videoId={selectedVideo.id.videoId}
+                  videoId={selectedVideo.id}
                   opts={{
                     playerVars: {
                       autoplay: 1,

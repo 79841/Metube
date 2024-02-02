@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { MutableRefObject } from "react";
 import { YouTubePlayer } from "react-youtube";
 
-export const useMouseOverVideo = () => {
-  const playerRef = useRef<YouTubePlayer | null>(null);
-
+export const useMouseOverVideo = (
+  playerRef: MutableRefObject<YouTubePlayer | null>,
+) => {
   const playWithMouseOver = () => {
     if (playerRef.current) {
       playerRef.current.playVideo();
@@ -16,9 +16,5 @@ export const useMouseOverVideo = () => {
     }
   };
 
-  const onReady = (event: { target: YouTubePlayer }) => {
-    playerRef.current = event.target;
-  };
-
-  return [playWithMouseOver, stopWithMouseOut, onReady] as const;
+  return [playWithMouseOver, stopWithMouseOut] as const;
 };

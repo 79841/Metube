@@ -10,10 +10,7 @@ type TContentDetails = {
   duration: string;
 };
 
-type TId = {
-  kind: string;
-  videoId: string;
-};
+type TId = string;
 
 type TSnippet = {
   publishedAt: string;
@@ -42,10 +39,7 @@ const tContentDetailsSchema = z.object({
   duration: z.string(),
 });
 
-const tIdSchema = z.object({
-  kind: z.string(),
-  videoId: z.string(),
-});
+const tIdSchema = z.string();
 
 const tThumbnailSchema = z.object({
   url: z.string(),
