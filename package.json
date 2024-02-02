@@ -61,7 +61,7 @@
     ]
   },
   "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^5.17.20",
+    "@tanstack/eslint-plugin-query": "^5.18.1",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
     "eslint": "^8.56.0",
