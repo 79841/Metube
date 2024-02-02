@@ -6,7 +6,9 @@ export const Header = () => {
     <div className="flex justify-center px-8 pt-8">
       <Logo />
       <SearchBox />
-      <div className="ml-auto text-2xl">Metube</div>
+      <div className="mr-auto opacity-0">
+        <Logo />
+      </div>
     </div>
   );
 };
