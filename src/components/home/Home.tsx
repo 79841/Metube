@@ -4,7 +4,7 @@ import { useSubscribeList } from "../../hooks/useSubscribeList";
 import { useSubscribedListStore } from "../../lib/zustand/subscribedList";
 import { SubscriptionList } from "../youtube/subscription";
 import { VideoList, VideoModal } from "../youtube/video";
-import { Header } from "./header/Header";
+import { Header } from "./header";
 
 export const Home = () => {
   const [data, isLoading] = useSubscribeList();

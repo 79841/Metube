@@ -1,7 +1,7 @@
-import { TSubscription } from "../../../types/Subscription";
-import { useBackgroundImage } from "./hooks/useBackgroundImage";
+import { TSubscription } from "types";
 import { SubscriptionIcon } from "./SubscriptionIcon";
 import { SubscriptionTitle } from "./SubscriptionTitle";
+import { useBackgroundImage } from "./hooks";
 
 type TSubscriptionProps = {
   subscription: TSubscription["snippet"];

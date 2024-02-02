@@ -1,5 +1,5 @@
-import { useSubscribedListStore } from "../../../lib/zustand/subscribedList";
-import { TSubscription } from "../../../types/Subscription";
+import { useSubscribedListStore } from "lib/zustand/subscribedList";
+import { TSubscription } from "types";
 import { Subscription } from "./Subscription";
 
 export const SubscriptionList = () => {

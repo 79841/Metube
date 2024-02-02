@@ -1,4 +1,4 @@
-import { TSubscription } from "../../../types/Subscription";
+import { TSubscription } from "types";
 
 type TsubscriptionIconProps = {
   subscription: TSubscription["snippet"];

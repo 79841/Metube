@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { TSubscription } from "../../types/Subscription";
+import { TSubscription } from "types";
 
 class Youtube {
   private youtube: AxiosInstance;

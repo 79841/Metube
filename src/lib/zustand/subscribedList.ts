@@ -1,5 +1,5 @@
+import { TSubscription } from "types";
 import { create } from "zustand";
-import { TSubscription } from "../../types/Subscription";
 
 type TState = {
   subscribedList: TSubscription[];

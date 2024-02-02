@@ -1,5 +1,5 @@
-import { TVideo } from "../../../../types/Video";
-import { convertISO8601ToHMS } from "../../../../utils/convertTimeFormat";
+import { TVideo } from "types";
+import { convertISO8601ToHMS } from "utils/convertTimeFormat";
 
 type TVideoThumbnail = {
   videoData: TVideo;

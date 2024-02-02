@@ -1,4 +1,4 @@
-import { useDndIsDraggingDispatchContext } from "../../../../../common/dnd/context";
+import { useDndIsDraggingDispatchContext } from "components/common/dnd/context";
 
 export const useVideoDragging = () => {
   const { startDragging } = useDndIsDraggingDispatchContext();

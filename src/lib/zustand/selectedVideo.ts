@@ -1,5 +1,5 @@
+import { TVideo } from "types/Video";
 import { create } from "zustand";
-import { TVideo } from "../../types/Video";
 
 type TState = {
   selectedVideo: TVideo | null;

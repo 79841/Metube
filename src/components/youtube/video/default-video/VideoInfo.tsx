@@ -1,5 +1,5 @@
-import { useSubscribedListStore } from "../../../../lib/zustand";
-import { TVideo } from "../../../../types/Video";
+import { useSubscribedListStore } from "lib/zustand";
+import { TVideo } from "types";
 
 type TVideoInfoProps = {
   videoData: TVideo;

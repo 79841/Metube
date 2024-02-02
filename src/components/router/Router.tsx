@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Login } from "../auth";
-import { TanstackProvider } from "../common/tanstack";
-import { Home } from "../home";
+import { Login } from "components/auth";
+import { TanstackProvider } from "components/common/tanstack";
+import { Home } from "components/home";
 
 export const Router = () => {
   return (

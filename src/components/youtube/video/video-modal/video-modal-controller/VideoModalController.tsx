@@ -1,15 +1,8 @@
-
-import { useSelectedVideoStore } from "../../../../../lib/zustand";
-import {
-  useDndPositionDispatchContext,
-} from "../../../../common/dnd/context";
-import {
-  useWidthDispatchContext,
-} from "../../../../common/resizable/context/WidthContext";
-import { CloseButton } from "./buttons/CloseButton";
-import { MaxButton } from "./buttons/MaxButton";
-import { MinButton } from "./buttons/MinButton";
-import { useVideoDragging } from "./hooks/useVideoDragging";
+import { useDndPositionDispatchContext } from "components/common/dnd/context";
+import { useWidthDispatchContext } from "components/common/resizable/context";
+import { useSelectedVideoStore } from "lib/zustand";
+import { CloseButton, MaxButton, MinButton } from "./buttons";
+import { useVideoDragging } from "./hooks";
 
 export const VideoModalController = () => {
   const handleMouseDown = useVideoDragging();

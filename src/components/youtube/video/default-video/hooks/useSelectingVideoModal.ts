@@ -1,5 +1,5 @@
-import { useSelectedVideoStore } from "../../../../../lib/zustand";
-import { TVideo } from "../../../../../types/Video";
+import { useSelectedVideoStore } from "lib/zustand";
+import { TVideo } from "types";
 
 export const useSelectingVideoModal = (videoData: TVideo) => {
   const { selectVideo } = useSelectedVideoStore();

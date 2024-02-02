@@ -1,11 +1,10 @@
 import YouTube, { YouTubePlayer } from "react-youtube";
 
 import { useRef, useState } from "react";
-import { TVideo } from "../../../../types/Video";
-import { VideoInfo } from "../default-video/VideoInfo";
+import { TVideo } from "types";
+import { VideoInfo } from "./VideoInfo";
 import { VideoThumbnail } from "./VideoThumbnail";
-import { useMouseOverVideo } from "./hooks/useMouseOverVideo";
-import { useSelectingVideoModal } from "./hooks/useSelectingVideoModal";
+import { useMouseOverVideo, useSelectingVideoModal } from "./hooks";
 
 type TVideoProps = {
   videoData: TVideo;
