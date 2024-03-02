@@ -23,7 +23,7 @@ export const Video = ({ videoData }: TVideoProps) => {
 
   return (
     <div
-      className="flex cursor-pointer flex-col gap-4 rounded-xl bg-zinc-900 p-2 text-zinc-100"
+      className="flex cursor-pointer flex-col gap-4 rounded-xl border border-zinc-700 p-4 text-zinc-100"
       onClick={startVideoModal}
     >
       <div
@@ -42,7 +42,7 @@ export const Video = ({ videoData }: TVideoProps) => {
           }}
         />
       </div>
-      <div className="mb-4 flex h-16 items-start gap-4">
+      <div className="flex h-fit items-start gap-4">
         <VideoInfo videoData={videoData} />
       </div>
     </div>
